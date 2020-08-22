@@ -58,3 +58,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# StandardAssets
+Assets/Standard Assets/*
+Assets/ExampleAssets/*
+Assets/Standard Assets.meta
