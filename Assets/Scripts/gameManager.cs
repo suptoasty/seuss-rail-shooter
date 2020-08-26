@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
-    public int difficulty = 1;
+    public bool hardMode = false;
     private int score = 0;
     private int lives = 0;
     public int maxLives = 3;
@@ -20,6 +20,7 @@ public class gameManager : MonoBehaviour
     void Start()
     {
         resetScore();
+        Debug.Log(getWord());
     }
 
     public void decreaseLives() {
@@ -43,10 +44,10 @@ public class gameManager : MonoBehaviour
     }
 
     public string getWord() {
-        if(difficulty == 1) {
-            return wordDictionary[0];
+        if(!hardMode) {
+            return wordDictionary[Random.Range(0, wordDictionary.Length)];
         } else {
-            return advancedWordDictionary[0];
+            return advancedWordDictionary[Random.Range(0, advancedWordDictionary.Length)];
         }
     }
 }
