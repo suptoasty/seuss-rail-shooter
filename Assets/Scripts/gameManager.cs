@@ -5,9 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
+    public int difficulty = 1;
     private int score = 0;
     private int lives = 0;
     public int maxLives = 3;
+    public string[] wordDictionary = new string[] {
+        "apple", "dog", "cat", "bat"
+    };
+    public string[] advancedWordDictionary = new string[] {
+        "prestidigitation"
+    };
 
     // Start is called before the first frame update
     void Start()
@@ -33,5 +40,13 @@ public class gameManager : MonoBehaviour
 
     public void resetScore() {
         score = 0;
+    }
+
+    public string getWord() {
+        if(difficulty == 1) {
+            return wordDictionary[0];
+        } else {
+            return advancedWordDictionary[0];
+        }
     }
 }
