@@ -5,6 +5,7 @@ using UnityEngine;
 public class gun : MonoBehaviour
 {
     public GameObject projectile;
+    public float bulletDespawnTime = 2.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,8 @@ public class gun : MonoBehaviour
             Transform fireLocation = gameObject.transform.GetChild(0);
             GameObject temp = Instantiate(projectile, fireLocation.position, fireLocation.rotation);
             temp.GetComponent<Rigidbody>().AddForce(transform.forward * 1000, ForceMode.Force);
-            StartCoroutine(destroyTimer(2, temp));
+            Destroy(temp, bulletDespawnTime);
+            // StartCoroutine(destroyTimer(2, temp));
         }
     }
     

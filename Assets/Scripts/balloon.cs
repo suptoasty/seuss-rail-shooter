@@ -7,6 +7,7 @@ public class balloon : MonoBehaviour
    public string word = "";
    public float speed = 10.0f;
    public bool randomSpeed = false;
+   public float despawnTime = 10.0f;
 
    private void Start() {
       if(randomSpeed) {
@@ -16,6 +17,7 @@ public class balloon : MonoBehaviour
       Rigidbody body = GetComponent<Rigidbody>();
       body.AddForce(transform.up * speed, ForceMode.Acceleration);
       
+      Destroy(gameObject, despawnTime);
    }
 
    private void OnTriggerEnter(Collider other) {
