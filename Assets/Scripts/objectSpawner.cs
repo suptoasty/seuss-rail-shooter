@@ -5,8 +5,9 @@ using UnityEngine;
 public class objectSpawner : MonoBehaviour
 {
     public gameManager manager;
-    public ballon spawnableObject;
-    public string rightWord = "";
+    public balloon spawnableObject;
+    private string rightWord = "";
+    public float spawnTolerance = 2.0f;
 
     public void Start() {
         spanwObjects(10);
@@ -24,7 +25,7 @@ public class objectSpawner : MonoBehaviour
         amount++; //account for right ballon
         for(int i = 0; i < amount; i++) {
             //instaniate new ballon
-            ballon newBallon = Instantiate(spawnableObject, getRandomPosition(), Quaternion.identity);
+            balloon newBallon = Instantiate(spawnableObject, getRandomPosition(), Quaternion.identity);
             Debug.Log(newBallon.transform.position);
            
             //get word from dictionary that is not right word
@@ -38,11 +39,13 @@ public class objectSpawner : MonoBehaviour
 
     //returns random position balloon will spawn at
     public Vector3 getRandomPosition() {
+        Debug.Log(Camera.main.nearClipPlane);
+        Debug.Log(Camera.main.farClipPlane);
         return Camera.main.ScreenToWorldPoint(
             new Vector3(
                 Random.Range(0, Screen.width),
-                Random.Range(0, Screen.height),
-                Camera.main.farClipPlane/2
+                Random.Range(5, Screen.height),
+                Camera.main.farClipPlane / (Camera.main.nearClipPlane * Camera.main.farClipPlane) * spawnTolerance
             )
         );
     }
