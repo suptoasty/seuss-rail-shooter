@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class balloon : MonoBehaviour
 {
@@ -18,6 +19,12 @@ public class balloon : MonoBehaviour
       body.AddForce(transform.up * speed, ForceMode.Acceleration);
       
       Destroy(gameObject, despawnTime);
+   }
+   void Update() {
+      Text text = gameObject.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Text>();
+      Debug.Log(text);
+      text.text = word;
+      // text.transform.LookAt(Camera.main.transform);
    }
 
    private void OnTriggerEnter(Collider other) {
