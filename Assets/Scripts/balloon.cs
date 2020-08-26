@@ -17,4 +17,21 @@ public class balloon : MonoBehaviour
       body.AddForce(transform.up * speed, ForceMode.Acceleration);
       
    }
+
+   private void OnTriggerEnter(Collider other) {
+      if(other.gameObject.tag == "Projectile") {
+         bool isCorrect = false;
+         //check if word is right
+
+         if(isCorrect) {
+            //give points
+         } else {
+            //lose health???
+         }
+      }
+   }
+
+   public void pop() {
+      //swap out models and deinstance this object
+   }
 }
