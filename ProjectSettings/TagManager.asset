@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - barrel
+  - Projectile
   layers:
   - Default
   - TransparentFX
