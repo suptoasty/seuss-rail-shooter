@@ -44,8 +44,8 @@ public class objectSpawner : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(
             new Vector3(
                 Random.Range(0, Screen.width),
-                Random.Range(5, Screen.height),
-                Camera.main.farClipPlane / (Camera.main.nearClipPlane * Camera.main.farClipPlane) * spawnTolerance
+                Random.Range(0, Screen.height),
+                Random.Range(Camera.main.nearClipPlane * spawnTolerance, Camera.main.farClipPlane / (Camera.main.nearClipPlane * Camera.main.farClipPlane) * spawnTolerance)
             )
         );
     }
