@@ -20,7 +20,6 @@ public class gameManager : MonoBehaviour
     void Start()
     {
         resetScore();
-        Debug.Log(getWord());
     }
 
     public void decreaseLives() {

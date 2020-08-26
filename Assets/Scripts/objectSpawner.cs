@@ -8,6 +8,10 @@ public class objectSpawner : MonoBehaviour
     public ballon spawnableObject;
     public string rightWord = "";
 
+    public void Start() {
+        spanwObjects(10);
+    }
+
     public void spanwObjects(int amount = 1, bool random = true) {
         if(random) {
             amount = Mathf.RoundToInt(Random.Range(3.0f, 10.0f));
@@ -21,6 +25,7 @@ public class objectSpawner : MonoBehaviour
         for(int i = 0; i < amount; i++) {
             //instaniate new ballon
             ballon newBallon = Instantiate(spawnableObject, getRandomPosition(), Quaternion.identity);
+            Debug.Log(newBallon.transform.position);
            
             //get word from dictionary that is not right word
             string word = manager.getWord();
@@ -33,6 +38,12 @@ public class objectSpawner : MonoBehaviour
 
     //returns random position balloon will spawn at
     public Vector3 getRandomPosition() {
-        return new Vector3();
+        return Camera.main.ScreenToWorldPoint(
+            new Vector3(
+                Random.Range(0, Screen.width),
+                Random.Range(0, Screen.height),
+                Camera.main.farClipPlane/2
+            )
+        );
     }
 }
