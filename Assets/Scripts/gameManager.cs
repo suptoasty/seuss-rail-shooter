@@ -15,10 +15,15 @@ public class gameManager : MonoBehaviour
     public string[] advancedWordDictionary = new string[] {
         "prestidigitation"
     };
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+
         resetScore();
     }
 
