@@ -36,7 +36,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_C873BFA4_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 2de0d72a6700bd94ea57111b29e246fc, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_CDBC38BA_Texture:
@@ -61,3 +61,4 @@ Material:
     - Color_23C9B10D: {r: 0, g: 0.61, b: 0.85, a: 0}
     - Color_A2AAE5B5: {r: 0.78999996, g: 0.8399999, b: 0.96999997, a: 0}
     - Vector2_C848BFFB: {r: 0.3, g: 0.8, b: 0, a: 0}
+  m_BuildTextureStacks: []
