@@ -9,11 +9,14 @@ public class gameManager : MonoBehaviour
     private int score = 0;
     private int lives = 0;
     public int maxLives = 3;
-    public string[] wordDictionary = new string[] {
-        "apple", "dog", "cat", "bat"
+
+    public List<string>[] wordDictionary = new List<string>[] {
+        new List<string>() {"cat", "hat", "bat"},
+        new List<string>() {"dog", "fog"},
+        new List<string>() {"apple", "grapple"}
     };
-    public string[] advancedWordDictionary = new string[] {
-        "prestidigitation"
+    public List<string>[] advancedWordDictionary = new List<string>[] {
+        new List<string>() {"prestidigitation", },
     };
     void Awake()
     {
@@ -21,9 +24,7 @@ public class gameManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-
+    void Start() {
         resetScore();
     }
 
@@ -47,11 +48,23 @@ public class gameManager : MonoBehaviour
         score = 0;
     }
 
+    //get random word form dictionary
     public string getWord() {
         if(!hardMode) {
-            return wordDictionary[Random.Range(0, wordDictionary.Length)];
+            var list = wordDictionary[Random.Range(0, wordDictionary.Length)] as List<string>;
+            return list[Random.Range(0, list.Count)];
         } else {
-            return advancedWordDictionary[Random.Range(0, advancedWordDictionary.Length)];
+            var list = advancedWordDictionary[Random.Range(0, advancedWordDictionary.Length)] as List<string>;
+            return list[Random.Range(0, list.Count)];
+        }
+    }
+
+    //return a slice of rhyms from dictionary
+    public List<string> getRhyme() {
+        if(!hardMode) {
+            return wordDictionary[Random.Range(0, wordDictionary.Length)] as List<string>;
+        } else {
+            return advancedWordDictionary[Random.Range(0, advancedWordDictionary.Length)] as List<string>;
         }
     }
 }

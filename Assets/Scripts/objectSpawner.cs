@@ -6,7 +6,7 @@ public class objectSpawner : MonoBehaviour
 {
     public gameManager manager;
     public balloon spawnableObject;
-    private string rightWord = "";
+    private List<string> rhymes;
     public float spawnTolerance = 2.0f;
 
     public void Start() {
@@ -18,11 +18,10 @@ public class objectSpawner : MonoBehaviour
             amount = Mathf.RoundToInt(Random.Range(3.0f, 10.0f));
         }
 
-        //set balloon with right answer here and spawn
+        //spawn random rhyming words
         //### Code here
 
-        //for all others spawn with random word
-        amount++; //account for right ballon
+        //spawn other random word
         for(int i = 0; i < amount; i++) {
             //instaniate new ballon
             balloon newBallon = Instantiate(spawnableObject, getRandomPosition(), Quaternion.identity);
@@ -30,9 +29,6 @@ public class objectSpawner : MonoBehaviour
            
             //get word from dictionary that is not right word
             string word = manager.getWord();
-            while(word == rightWord) {
-                word = manager.getWord();
-            }
             newBallon.word = word;
         }
     }
