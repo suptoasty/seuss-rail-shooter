@@ -9,8 +9,10 @@ public class balloon : MonoBehaviour
    public float speed = 10.0f;
    public bool randomSpeed = false;
    public float despawnTime = 10.0f;
+   public gameManager manager;
 
    private void Start() {
+      manager = gameManager.instance;
       if(randomSpeed) {
          speed = Random.Range(15.0f, 50.0f);
       }
@@ -18,29 +20,28 @@ public class balloon : MonoBehaviour
       Rigidbody body = GetComponent<Rigidbody>();
       body.AddForce(transform.up * speed, ForceMode.Acceleration);
       
+      Text text = gameObject.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Text>();
+      text.text = word;
       Destroy(gameObject, despawnTime);
    }
    void Update() {
-      Text text = gameObject.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Text>();
-      Debug.Log(text);
-      text.text = word;
-      // text.transform.LookAt(Camera.main.transform);
    }
 
    private void OnTriggerEnter(Collider other) {
       if(other.gameObject.tag == "Projectile") {
-         bool isCorrect = false;
-         //check if word is right
-
-         if(isCorrect) {
+         if(manager.isCorrect(word)) {
             //give points
+            manager.incrementScore();
          } else {
             //lose health???
          }
+         pop();
+         Destroy(other.gameObject);
       }
    }
 
    public void pop() {
       //swap out models and deinstance this object
+      Destroy(this.gameObject);
    }
 }

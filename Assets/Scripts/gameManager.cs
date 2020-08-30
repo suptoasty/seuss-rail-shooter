@@ -9,20 +9,29 @@ public class gameManager : MonoBehaviour
     private int score = 0;
     private int lives = 0;
     public int maxLives = 3;
-    public string[] wordDictionary = new string[] {
-        "apple", "dog", "cat", "bat"
+    public List<string> rhyme;
+    public string currentWord = "";
+
+    public static gameManager instance = null;
+    public List<string>[] wordDictionary = new List<string>[] {
+        new List<string> { "apple", "grapple" },
+        new List<string> { "cat", "bat" },
+        new List<string> { "dog", "fog" }
     };
-    public string[] advancedWordDictionary = new string[] {
-        "prestidigitation"
+    public List<string>[] advancedWordDictionary = new List<string>[] {
+        new List<string> { "prestidigitation" },
     };
-    void Awake()
-    {
+    void Awake() {
+        if(instance == null) {
+            instance = this;
+        } else if(instance != this) {
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(this.gameObject);
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
 
         resetScore();
     }
@@ -47,7 +56,25 @@ public class gameManager : MonoBehaviour
         score = 0;
     }
 
+    public bool isCorrect(string guess) {
+        if(rhyme.Contains(guess)) {
+            return true;
+        }
+
+        return false;
+    }
+
     public string getWord() {
+        if(!hardMode) {
+            var list = wordDictionary[Random.Range(0, wordDictionary.Length)];
+            return list[Random.Range(0, list.Count)];
+        } else {
+            var list = advancedWordDictionary[Random.Range(0, advancedWordDictionary.Length)];
+            return list[Random.Range(0, list.Count)];
+        }
+    }
+
+    public List<string> getRhyme() {
         if(!hardMode) {
             return wordDictionary[Random.Range(0, wordDictionary.Length)];
         } else {
