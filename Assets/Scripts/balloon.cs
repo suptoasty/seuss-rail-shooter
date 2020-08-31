@@ -8,6 +8,7 @@ public class balloon : MonoBehaviour
    public string word = "";
    public float speed = 10.0f;
    public bool randomSpeed = false;
+   public bool randomDespawn = false;
    public float despawnTime = 10.0f;
    public gameManager manager;
 
@@ -22,9 +23,11 @@ public class balloon : MonoBehaviour
       
       Text text = gameObject.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Text>();
       text.text = word;
-      Destroy(gameObject, despawnTime);
-   }
-   void Update() {
+      if(randomDespawn) {
+         Destroy(gameObject, Random.Range(0, despawnTime));
+      } else {
+         Destroy(gameObject, despawnTime);
+      }
    }
 
    private void OnTriggerEnter(Collider other) {

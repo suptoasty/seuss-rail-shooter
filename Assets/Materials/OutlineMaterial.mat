@@ -9,11 +9,11 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: OutlineMaterial
   m_Shader: {fileID: -6465566751694194690, guid: 65f5118f40ae7434682a2df9c83df315, type: 3}
-  m_ShaderKeywords: _BLENDMODE_ALPHA _ENABLE_FOG_ON_TRANSPARENT _SURFACE_TYPE_TRANSPARENT
+  m_ShaderKeywords: _BLENDMODE_ALPHA _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap:
     MotionVector: User
     RenderType: Transparent
@@ -55,6 +55,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_45A2D121: 1.5
+    - Vector1_E71AEF38: 0.6
     - _AlphaClip: 0
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 10
@@ -69,7 +70,7 @@ Material:
     - _DoubleSidedEnable: 0
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 10
-    - _EnableFogOnTransparent: 1
+    - _EnableFogOnTransparent: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0

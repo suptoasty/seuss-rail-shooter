@@ -327,8 +327,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   word: 
   speed: 50
-  randomSpeed: 0
+  randomSpeed: 1
+  randomDespawn: 1
   despawnTime: 10
+  manager: {fileID: 0}
 --- !u!54 &7315087822372982773
 Rigidbody:
   m_ObjectHideFlags: 0

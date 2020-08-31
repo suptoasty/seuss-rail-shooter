@@ -26,6 +26,7 @@ public class objectSpawner : MonoBehaviour
             rhymingWord = manager.rhyme[Random.Range(0, manager.rhyme.Count)];
         }
         rhymingBalloon.word = rhymingWord;
+        rhymingBalloon.randomDespawn = false;
 
         Debug.Log("CurrentWord: "+manager.currentWord);
         Debug.Log("RhymingWord: "+rhymingWord);
