@@ -15,8 +15,23 @@ public class gameManager : MonoBehaviour
     public static gameManager instance = null;
     public List<string>[] wordDictionary = new List<string>[] {
         new List<string> { "apple", "grapple" },
-        new List<string> { "cat", "bat" },
-        new List<string> { "dog", "fog" }
+        new List<string> { "cat", "bat", "sat" },
+        new List<string> { "dog", "fog", "log", "frog" },
+        new List<string> { "ball", "fall", "tall", "all", "call" },
+        new List<string> { "right", "kite", "tonight" },
+        new List<string> { "owl", "towel", "growl" },
+        new List<string> { "bore", "four", "roar" },
+        new List<string> { "rock", "chalk", "hawk" },
+        new List<string> { "face", "place", "race" },
+        new List<string> { "boat", "coat", "float" },
+        new List<string> { "fan", "can", "pan", "van" },
+        new List<string> { "dice", "mice", "rice" },
+        new List<string> { "feet", "sweet" },
+        new List<string> { "peg", "leg" },
+        new List<string> { "jug", "mug" },
+        new List<string> { "school", "pool" },
+        new List<string> { "honey", "money" },
+        new List<string> { "tree", "bee" }
     };
     public List<string>[] advancedWordDictionary = new List<string>[] {
         new List<string> { "prestidigitation" },
