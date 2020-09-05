@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class TogglePause : MonoBehaviour
 {
@@ -8,10 +9,16 @@ public class TogglePause : MonoBehaviour
 
     public GameObject pauseMenu;
     public GameObject optionsMenu;
+    public bool paused = false;
+    public GameObject player;
+
     void Start()
     {
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
+
+        Cursor.visible = (false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -19,7 +26,37 @@ public class TogglePause : MonoBehaviour
     {
         if (Input.GetButtonDown("Cancel"))
         {
-            pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
+            paused = !paused;
+
+            if (paused)
+            {
+                pause();
+            }
+
+            else
+            {
+                unpause();
+            }
         }
+
+
+    }
+
+    void pause()
+    {
+        player.GetComponent<FirstPersonController>().paused = true;
+        pauseMenu.SetActive(true);
+        Cursor.visible = (true);
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0.0f;
+    }
+
+    void unpause()
+    {
+        player.GetComponent<FirstPersonController>().paused = false;
+        pauseMenu.SetActive(false);
+        Cursor.visible = (false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1.0f;
     }
 }

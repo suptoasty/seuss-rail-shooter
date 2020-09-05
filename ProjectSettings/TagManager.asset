@@ -6,6 +6,7 @@ TagManager:
   tags:
   - barrel
   - Projectile
+  - playerUI
   layers:
   - Default
   - TransparentFX

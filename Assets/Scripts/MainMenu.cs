@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         //This is required otherwise objects do not exist if you begin with them disabled / invisable.
+        if(highscoresScreen)
         highscoresScreen.SetActive(false);
         optionsScreen.SetActive(false);
 
@@ -34,9 +35,12 @@ public class MainMenu : MonoBehaviour
 
     public void HomeDisplay()
     {
-        highscoresScreen.SetActive(false);
         optionsScreen.SetActive(false);
         homeScreen.SetActive(true);
+        if (highscoresScreen)
+        {
+            highscoresScreen.SetActive(false);
+        }
     }
 
     public void HighScoresDisplay()
