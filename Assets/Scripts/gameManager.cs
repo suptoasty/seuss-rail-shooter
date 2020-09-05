@@ -8,7 +8,8 @@ public class gameManager : MonoBehaviour
     public bool hardMode = false;
     private int score = 0;
     private int lives = 0;
-    public int maxLives = 3;
+    public int maxLives = 4;
+    public HealthControl healthUI;
     public List<string> rhyme;
     public string currentWord = "";
 
@@ -49,14 +50,23 @@ public class gameManager : MonoBehaviour
     void Start() {
 
         resetScore();
+        healthUI = GameObject.FindGameObjectWithTag("playerUI").GetComponent<HealthControl>();
+    }
+
+    public void increaseLives()
+    {
+        lives++;
+        healthUI.decrementHealth();
     }
 
     public void decreaseLives() {
         lives--;
+        healthUI.decrementHealth();
     }
 
     public void resetLives() {
         lives = maxLives;
+        healthUI.setHealth(lives);
     }
 
     public void addScore(int amount) {
