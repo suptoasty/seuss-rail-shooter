@@ -11,22 +11,33 @@ public class MainMenu : MonoBehaviour
     public GameObject homeScreen;
     public GameObject optionsScreen;
     public GameObject highscoresScreen;
+    public GameObject prizeScreen;
     public GameObject resolutionPicker;
     public GameObject volumeSlider;
     bool fullScreen;
     int width;
     int height;
 
+    public List<GameObject> prizeList;
+
     private void Start()
     {
-        //This is required otherwise objects do not exist if you begin with them disabled / invisable.
-        if(highscoresScreen)
-        highscoresScreen.SetActive(false);
-        optionsScreen.SetActive(false);
+        PlayerPrefs.SetFloat("totalScore", 800);
 
+        //This is required otherwise objects do not exist if you begin with them disabled / invisable.
+        if (highscoresScreen)
+        {
+            highscoresScreen.SetActive(false);
+            prizeScreen.SetActive(false);
+        }
+       
+        optionsScreen.SetActive(false);
+        
         width = 1920;
         height = 1080;
         fullScreen = false;
+
+        prizeManagement();
     }
     public void PlayGame()
     {
@@ -40,6 +51,7 @@ public class MainMenu : MonoBehaviour
         if (highscoresScreen)
         {
             highscoresScreen.SetActive(false);
+            prizeScreen.SetActive(false);
         }
     }
 
@@ -53,6 +65,12 @@ public class MainMenu : MonoBehaviour
     {
         homeScreen.SetActive(false);
         optionsScreen.SetActive(true);
+    }
+
+    public void PrizeDisplay()
+    {
+        homeScreen.SetActive(false);
+        prizeScreen.SetActive(true);
     }
 
     public void changeResolution()
@@ -74,6 +92,90 @@ public class MainMenu : MonoBehaviour
     {
         //Need to set up an Audio mixer with a master volume, then tie this to that
         //AudioSource.volume = volumeSlider.GetComponent<Slider>().value;
+    }
+
+    public void prizeManagement()
+    {
+        //item n = sum(n*100, from 1 to n) points
+        float prizeUnlock = getPrizePercentage();
+        int unlockedPrizes = (int)Math.Floor(prizeUnlock);
+        Debug.Log("PrizeUnlock Percent: " + prizeUnlock);
+        Debug.Log("UnlockedPrizes: " + unlockedPrizes);
+
+        //Set prizes active for all that are unlocked
+        for(int i = 0; i < unlockedPrizes && i < prizeList.Count; i++)
+        {
+            prizeList[i].GetComponent<Image>().enabled = false;
+            prizeList[i].GetComponent<Slider>().value = 1.0f;
+        }
+
+        //If not all prizes are unlocked, set the percentage for the next item
+        if(unlockedPrizes < 8)
+        {
+            float percent = (float)(prizeUnlock - Math.Floor(prizeUnlock));
+            prizeList[unlockedPrizes].GetComponent<Slider>().value = percent;
+        }
+    }
+
+    private int getSum(int n)
+    {
+        if (n == 1)
+        {
+            return 100;
+        }
+
+        else
+        {
+            return (n * 100) + getSum(n - 1);
+        }
+    }
+
+    private float getPrizePercentage()
+    {
+        if(PlayerPrefs.GetFloat("totalScore") < 100)
+        {
+            return PlayerPrefs.GetFloat("totalScore") / 100;
+        }
+
+        else if (PlayerPrefs.GetFloat("totalScore") < 300)
+        {
+            return 1 + (PlayerPrefs.GetFloat("totalScore") - 100) / 200;
+        }
+
+        else if (PlayerPrefs.GetFloat("totalScore") < 600)
+        {
+            return 2 + (PlayerPrefs.GetFloat("totalScore") - 300) / 300;
+        }
+
+        else if(PlayerPrefs.GetFloat("totalScore") < 1000)
+        {
+            return 3 + (PlayerPrefs.GetFloat("totalScore") - 600) / 400;
+        }
+
+        else if(PlayerPrefs.GetFloat("totalScore") < 1500)
+        {
+            return 4 + (PlayerPrefs.GetFloat("totalScore") - 1000) / 500;
+        }
+
+        else if(PlayerPrefs.GetFloat("totalScore") < 2100)
+        {
+            return 5 + (PlayerPrefs.GetFloat("totalScore") - 1500) / 600;
+        }
+
+        else if(PlayerPrefs.GetFloat("totalScore") < 2800)
+        {
+            return 6 + (PlayerPrefs.GetFloat("totalScore") - 2100) / 700;
+        }
+
+        else if(PlayerPrefs.GetFloat("totalScore") < 3600)
+        {
+            return 7 + (PlayerPrefs.GetFloat("totalScore") - 2800) / 800;
+        }
+
+        else
+        {
+            return 8;
+        }
     }
 
     public void Quit()
