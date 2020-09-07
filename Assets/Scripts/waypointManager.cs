@@ -8,6 +8,16 @@ public class waypointManager : MonoBehaviour {
     private int destPoint = 0;
     public bool stop = false;
     public float movementSpeed = 1.0f;
+    public static waypointManager instance = null;
+
+    void Awake() {
+        if(instance == null) {
+            instance = this;
+        } else if(instance != this) {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     public void FixedUpdate() {
         Vector3 point = waypoints[destPoint].transform.position;

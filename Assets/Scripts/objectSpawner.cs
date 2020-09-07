@@ -8,6 +8,7 @@ public class objectSpawner : MonoBehaviour
     public balloon spawnableObject;
     public float spawnTolerance = 2.0f;
     public static objectSpawner instance = null;
+    public BoxCollider spawnField = null;
 
     void Awake() {
         if(instance == null) {
@@ -44,7 +45,7 @@ public class objectSpawner : MonoBehaviour
         amount++; //account for right ballon
         for(int i = 0; i < amount; i++) {
             //instaniate new ballon
-            balloon newBallon = Instantiate(spawnableObject, getRandomPosition(), Quaternion.identity);
+            balloon newBallon = Instantiate(spawnableObject, getPointInCollision(spawnField), Quaternion.identity);
             // Debug.Log(newBallon.transform.position);
            
             //get word from dictionary that is not right word
