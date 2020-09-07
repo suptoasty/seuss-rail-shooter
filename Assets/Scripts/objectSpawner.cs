@@ -20,7 +20,6 @@ public class objectSpawner : MonoBehaviour
 
     public void Start() {
         manager = gameManager.instance;
-        spanwObjects(10);
     }
 
     public void spanwObjects(int amount = 1, bool random = true) {
@@ -68,5 +67,13 @@ public class objectSpawner : MonoBehaviour
                 Random.Range(Camera.main.nearClipPlane * spawnTolerance, Camera.main.farClipPlane / (Camera.main.nearClipPlane * Camera.main.farClipPlane) * spawnTolerance)
             )
         );
+    }
+
+    //takes boxCollder and produces a random point in that box
+    public Vector3 getPointInCollision(BoxCollider box) {
+        return new Vector3(
+        Random.Range(box.bounds.min.x, box.bounds.max.x),
+        Random.Range(box.bounds.min.y, box.bounds.max.y),
+        Random.Range(box.bounds.min.z, box.bounds.max.z));        
     }
 }
