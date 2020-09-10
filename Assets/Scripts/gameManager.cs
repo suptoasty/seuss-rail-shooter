@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
     public bool hardMode = false;
     private int score = 0;
+    public int timer = 180; //Seconds
+    public GameObject timerObj;
     private int lives = 0;
     public int maxLives = 4;
     public HealthControl healthUI;
@@ -47,17 +51,17 @@ public class gameManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-
+        setTimer();
         resetScore();
-        healthUI = GameObject.FindGameObjectWithTag("playerUI").GetComponent<HealthControl>();
+        StartCoroutine(timerCoroutine());
     }
 
     void Update() {
-        GameObject[] balloons = GameObject.FindGameObjectsWithTag("balloon");
-        if(balloons.Length == 0 && WaypointManager.instance.isAtDest()) {
-            WaypointManager.instance.GotoNextPoint();
-            WaypointManager.instance.stop = false;
-        }
+        //GameObject[] balloons = GameObject.FindGameObjectsWithTag("balloon");
+        //if(balloons.Length == 0 && WaypointManager.instance.isAtDest()) {
+        //    WaypointManager.instance.GotoNextPoint();
+        //    WaypointManager.instance.stop = false;
+        //}
     }
 
     public void increaseLives()
@@ -111,6 +115,25 @@ public class gameManager : MonoBehaviour
             return wordDictionary[Random.Range(0, wordDictionary.Length)];
         } else {
             return advancedWordDictionary[Random.Range(0, advancedWordDictionary.Length)];
+        }
+    }
+
+    private void setTimer()
+    {
+        if(timer % 60 > 9)
+            timerObj.GetComponent<TextMeshProUGUI>().text = (timer / 60).ToString() + ":" + (timer % 60).ToString();
+        else
+            timerObj.GetComponent<TextMeshProUGUI>().text = (timer / 60).ToString() + ":" + (timer % 60).ToString() + "0";
+    }
+
+    IEnumerator timerCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        if(timer > 0)
+        {
+            timer--;
+            setTimer();
+            StartCoroutine(timerCoroutine());
         }
     }
 }

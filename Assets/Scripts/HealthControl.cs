@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class HealthControl : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject HeartFull;
-    [SerializeField]
-    private GameObject Heart3;
-    [SerializeField]
-    private GameObject Heart2;
-    [SerializeField]
-    private GameObject Heart1;
+    public GameObject HeartFull;
+    public GameObject Heart3;
+    public GameObject Heart2;
+    public GameObject Heart1;
     private int health = 4;
 
     public void setHealth(int h)

@@ -121,7 +121,7 @@ public class MainMenu : MonoBehaviour
         }
 
         //If not all prizes are unlocked, set the percentage for the next item
-        if(unlockedPrizes < 8)
+        if(unlockedPrizes < 10)
         {
             float percent = (float)(prizeUnlock - Math.Floor(prizeUnlock));
             prizeList[unlockedPrizes].GetComponent<Slider>().value = percent;
@@ -188,9 +188,19 @@ public class MainMenu : MonoBehaviour
             return 7 + (PlayerPrefs.GetFloat("totalScore") - 2800) / 800;
         }
 
+        else if (PlayerPrefs.GetFloat("totalScore") < 4500)
+        {
+            return 8 + (PlayerPrefs.GetFloat("totalScore") - 3600) / 900;
+        }
+
+        else if (PlayerPrefs.GetFloat("totalScore") < 5500)
+        {
+            return 9 + (PlayerPrefs.GetFloat("totalScore") - 4500) / 1000;
+        }
+
         else
         {
-            return 8;
+            return 10;
         }
     }
 
