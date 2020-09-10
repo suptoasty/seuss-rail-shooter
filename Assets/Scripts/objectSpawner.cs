@@ -16,7 +16,6 @@ public class objectSpawner : MonoBehaviour
         } else if(instance != this) {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(this.gameObject);
     }
 
     public void Start() {

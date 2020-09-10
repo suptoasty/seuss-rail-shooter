@@ -12,7 +12,6 @@ public class gameManager : MonoBehaviour
     public HealthControl healthUI;
     public List<string> rhyme;
     public string currentWord = "";
-
     public static gameManager instance = null;
     public List<string>[] wordDictionary = new List<string>[] {
         new List<string> { "apple", "grapple" },
@@ -51,6 +50,14 @@ public class gameManager : MonoBehaviour
 
         resetScore();
         healthUI = GameObject.FindGameObjectWithTag("playerUI").GetComponent<HealthControl>();
+    }
+
+    void Update() {
+        GameObject[] balloons = GameObject.FindGameObjectsWithTag("balloon");
+        if(balloons.Length == 0 && WaypointManager.instance.isAtDest()) {
+            WaypointManager.instance.GotoNextPoint();
+            WaypointManager.instance.stop = false;
+        }
     }
 
     public void increaseLives()
