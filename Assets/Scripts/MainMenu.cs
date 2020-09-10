@@ -14,6 +14,8 @@ public class MainMenu : MonoBehaviour
     public GameObject prizeScreen;
     public GameObject resolutionPicker;
     public GameObject volumeSlider;
+    public GameObject sideMenu;
+
     bool fullScreen;
     int width;
     int height;
@@ -29,6 +31,7 @@ public class MainMenu : MonoBehaviour
         {
             highscoresScreen.SetActive(false);
             prizeScreen.SetActive(false);
+            sideMenu.SetActive(false);
         }
        
         optionsScreen.SetActive(false);
@@ -42,6 +45,10 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
+    }
+    public void SideMenuDisplay()
+    {
+        sideMenu.SetActive(!sideMenu.activeSelf);
     }
 
     public void HomeDisplay()
@@ -58,17 +65,20 @@ public class MainMenu : MonoBehaviour
     public void HighScoresDisplay()
     {
         homeScreen.SetActive(false);
+        sideMenu.SetActive(false);
         highscoresScreen.SetActive(true);
     }
 
     public void OptionsDisplay()
     {
+        sideMenu.SetActive(false);
         homeScreen.SetActive(false);
         optionsScreen.SetActive(true);
     }
 
     public void PrizeDisplay()
     {
+        sideMenu.SetActive(false);
         homeScreen.SetActive(false);
         prizeScreen.SetActive(true);
     }
