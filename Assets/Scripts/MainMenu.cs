@@ -32,6 +32,7 @@ public class MainMenu : MonoBehaviour
             highscoresScreen.SetActive(false);
             prizeScreen.SetActive(false);
             sideMenu.SetActive(false);
+            prizeManagement();
         }
        
         optionsScreen.SetActive(false);
@@ -39,8 +40,6 @@ public class MainMenu : MonoBehaviour
         width = 1920;
         height = 1080;
         fullScreen = false;
-
-        prizeManagement();
     }
     public void PlayGame()
     {
@@ -71,7 +70,9 @@ public class MainMenu : MonoBehaviour
 
     public void OptionsDisplay()
     {
+        if(sideMenu)
         sideMenu.SetActive(false);
+
         homeScreen.SetActive(false);
         optionsScreen.SetActive(true);
     }
@@ -125,6 +126,11 @@ public class MainMenu : MonoBehaviour
             float percent = (float)(prizeUnlock - Math.Floor(prizeUnlock));
             prizeList[unlockedPrizes].GetComponent<Slider>().value = percent;
         }
+    }
+
+    public void restartLevel()
+    {
+        SceneManager.LoadScene(1);
     }
 
     private int getSum(int n)
