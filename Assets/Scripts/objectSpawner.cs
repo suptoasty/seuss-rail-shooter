@@ -7,16 +7,16 @@ public class objectSpawner : MonoBehaviour
     public gameManager manager;
     public balloon spawnableObject;
     public float spawnTolerance = 2.0f;
-    public static objectSpawner instance = null;
+    // public static objectSpawner instance = null;
     public BoxCollider spawnField = null;
 
-    void Awake() {
-        if(instance == null) {
-            instance = this;
-        } else if(instance != this) {
-            Destroy(gameObject);
-        }
-    }
+    // void Awake() {
+    //     if(instance == null) {
+    //         instance = this;
+    //     } else if(instance != this) {
+    //         Destroy(gameObject);
+    //     }
+    // }
 
     public void Start() {
         manager = gameManager.instance;

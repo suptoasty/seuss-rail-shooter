@@ -32,7 +32,6 @@ public class balloon : MonoBehaviour
 
    void Update() {
       transform.LookAt(Camera.main.transform);
-      Debug.Log(transform);
    }
 
    private void OnTriggerEnter(Collider other) {

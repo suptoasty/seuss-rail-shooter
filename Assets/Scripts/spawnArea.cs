@@ -9,9 +9,7 @@ public class spawnArea : MonoBehaviour
     public int spawnNumber = 0;
     public bool randomSpawnNumber = false;
 
-    void Start() {
-        spawner = objectSpawner.instance;
-        
+    void Start() {        
     }
 
     void OnTriggerEnter(Collider other) {
