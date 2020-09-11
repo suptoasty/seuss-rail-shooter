@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99509e07a0cd5534f9c5f0b7dcddd57a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
+  manager: {fileID: 1491178687550235969, guid: 2a34d4597acd817438aabf4156960918, type: 3}
   spawnableObject: {fileID: 4203911566160030001, guid: 8692a8ac882589645ba5cd030ee09604, type: 3}
   spawnTolerance: 5
   spawnField: {fileID: 2439458338609449097}

@@ -30,6 +30,11 @@ public class balloon : MonoBehaviour
       }
    }
 
+   void Update() {
+      transform.LookAt(Camera.main.transform);
+      Debug.Log(transform);
+   }
+
    private void OnTriggerEnter(Collider other) {
       if(other.gameObject.tag == "Projectile") {
          if(manager.isCorrect(word)) {
