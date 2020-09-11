@@ -57,11 +57,12 @@ public class gameManager : MonoBehaviour
     }
 
     void Update() {
-        //GameObject[] balloons = GameObject.FindGameObjectsWithTag("balloon");
-        //if(balloons.Length == 0 && WaypointManager.instance.isAtDest()) {
-        //    WaypointManager.instance.GotoNextPoint();
-        //    WaypointManager.instance.stop = false;
-        //}
+        GameObject[] balloons = GameObject.FindGameObjectsWithTag("balloon");
+        if (balloons.Length == 0 && WaypointManager.instance.isAtDest())
+        {
+            WaypointManager.instance.GotoNextPoint();
+            WaypointManager.instance.stop = false;
+        }
     }
 
     public void increaseLives()
