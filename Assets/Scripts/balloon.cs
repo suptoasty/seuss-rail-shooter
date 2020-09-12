@@ -30,7 +30,7 @@ public class balloon : MonoBehaviour
 
       body.AddForce(transform.up * speed, ForceMode.Acceleration);
       
-      Text text = gameObject.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Text>();
+      Text text = gameObject.transform.GetChild(0).GetChild(0).GetComponent<Text>();
       text.text = word;
         text.color = Color.black;
       if(randomDespawn) {
@@ -41,7 +41,8 @@ public class balloon : MonoBehaviour
    }
 
    void Update() {
-      transform.LookAt(Camera.main.transform);
+      // transform.LookAt(Camera.main.transform, Vector3.up);
+      transform.GetChild(0).transform.LookAt(Camera.main.transform);
    }
 
    private void OnTriggerEnter(Collider other) {

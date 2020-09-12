@@ -24,7 +24,7 @@ public class portalCamera : MonoBehaviour
         var offset = (camera.transform.forward * Camera.main.transform.position.z);
         var newPos =  new Vector3(startPos.x, transform.position.y, startPos.z + offset.z);
         camera.transform.position = new Vector3(newPos.x, newPos.y, Mathf.Clamp(newPos.z, distMin, distMax));
-        Debug.Log(camera.transform.position);
+        // Debug.Log(camera.transform.position);
     }
 
 
