@@ -31,9 +31,10 @@ public class waypointManager : MonoBehaviour
         }
 
     }
-    public void GotoNextPoint()
-    {
-        if (waypoints.Length == 0) return;
+    public void GotoNextPoint() {
+        if(waypoints.Length == 0) return;
+        if(destPoint == waypoints.Length) destPoint = waypoints.Length;
         destPoint = (destPoint + 1) % waypoints.Length;
+
     }
 }
