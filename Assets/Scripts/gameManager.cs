@@ -40,6 +40,10 @@ public class gameManager : MonoBehaviour
     public List<string>[] advancedWordDictionary = new List<string>[] {
         new List<string> { "prestidigitation" },
     };
+
+    public TextMeshProUGUI rhymeDisplay;
+    private bool endGameTriggered = false;
+
     void Awake() {
         if(instance == null) {
             instance = this;
@@ -53,18 +57,42 @@ public class gameManager : MonoBehaviour
     void Start() {
         setTimer();
         resetScore();
-        StartCoroutine(timerCoroutine());
+        resetLives();
+        StartCoroutine(timerCoroutine(1.0f));
+    }
+
+    public void resetLevel()
+    {
+       
+        timerObj = GameObject.FindGameObjectWithTag("timer");
+        healthUI = GameObject.FindGameObjectWithTag("playerUI").GetComponent<HealthControl>();
+        rhymeDisplay = GameObject.FindGameObjectWithTag("rhyme").GetComponent<TextMeshProUGUI>();
+
+        setTimer();
+        resetScore();
+        resetLives();
+        StartCoroutine(timerCoroutine(1.0f));
     }
 
     public void increaseLives()
     {
         lives++;
-        healthUI.decrementHealth();
+        healthUI.incrementHealth();
     }
 
     public void decreaseLives() {
-        lives--;
-        healthUI.decrementHealth();
+        if(lives > 1)
+        {
+            lives--;
+            healthUI.decrementHealth();
+        }
+
+        else
+        {
+            lives--;
+            healthUI.decrementHealth();
+            endGame();
+        }
     }
 
     public void resetLives() {
@@ -75,6 +103,12 @@ public class gameManager : MonoBehaviour
     public void addScore(int amount) {
         score += amount;
     }
+
+    public void removeScore(int amount)
+    {
+        score -= amount;
+    }
+
 
     public void incrementScore() {
         score++;
@@ -115,17 +149,45 @@ public class gameManager : MonoBehaviour
         if(timer % 60 > 9)
             timerObj.GetComponent<TextMeshProUGUI>().text = (timer / 60).ToString() + ":" + (timer % 60).ToString();
         else
-            timerObj.GetComponent<TextMeshProUGUI>().text = (timer / 60).ToString() + ":" + (timer % 60).ToString() + "0";
+            timerObj.GetComponent<TextMeshProUGUI>().text = (timer / 60).ToString() + ":0" + (timer % 60).ToString();
     }
 
-    IEnumerator timerCoroutine()
+    IEnumerator timerCoroutine(float time)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(time);
         if(timer > 0)
         {
             timer--;
             setTimer();
-            StartCoroutine(timerCoroutine());
+            StartCoroutine(timerCoroutine(time));
         }
+
+        else if(!endGameTriggered)
+        {
+            endGameTriggered = true;
+            endGame();
+        }
+
+        else if (endGameTriggered)
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
+    private void endGame()
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        //End Game
+        float temp = PlayerPrefs.GetFloat("totalScore");
+        PlayerPrefs.SetFloat("totalScore", temp + score);
+        Debug.Log(temp = PlayerPrefs.GetFloat("totalScore"));
+        GameObject.FindGameObjectWithTag("playerUI").GetComponent<MainMenu>().endOfGame();
+        StartCoroutine(endGameTimer(10.0f));
+    }
+
+    IEnumerator endGameTimer(float time)
+    {
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene(0);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class objectSpawner : MonoBehaviour
 {
     public gameManager manager;
-    public balloon spawnableObject;
+    public GameObject spawnableObject;
     public float spawnTolerance = 2.0f;
     // public static objectSpawner instance = null;
     public BoxCollider spawnField = null;
@@ -24,18 +24,19 @@ public class objectSpawner : MonoBehaviour
 
     public void spanwObjects(int amount = 1, bool random = true) {
         if(random) {
-            amount = Mathf.RoundToInt(Random.Range(3.0f, 10.0f));
+            amount = Mathf.RoundToInt(Random.Range(3.0f, 7.0f));
         }
         manager.rhyme = manager.getRhyme();
         manager.currentWord = manager.rhyme[Random.Range(0, manager.rhyme.Count)];
+        manager.rhymeDisplay.text = "Rhyme with: " + manager.currentWord;
 
-        balloon rhymingBalloon = Instantiate(spawnableObject, getRandomPosition(), Quaternion.identity);
+        balloon rhymingBalloon = Instantiate(spawnableObject, getRandomPosition(), Quaternion.identity).GetComponent<balloon>();
         string rhymingWord = manager.rhyme[Random.Range(0, manager.rhyme.Count)];
         while(rhymingWord == manager.currentWord) {
             rhymingWord = manager.rhyme[Random.Range(0, manager.rhyme.Count)];
         }
         rhymingBalloon.word = rhymingWord;
-        rhymingBalloon.randomDespawn = false;
+        //rhymingBalloon.randomDespawn = false;
 
         Debug.Log("CurrentWord: "+manager.currentWord);
         Debug.Log("RhymingWord: "+rhymingWord);
@@ -44,7 +45,7 @@ public class objectSpawner : MonoBehaviour
         amount++; //account for right ballon
         for(int i = 0; i < amount; i++) {
             //instaniate new ballon
-            balloon newBallon = Instantiate(spawnableObject, getPointInCollision(spawnField), Quaternion.identity);
+            balloon newBallon = Instantiate(spawnableObject, getPointInCollision(spawnField), Quaternion.identity).GetComponent<balloon>();
             // Debug.Log(newBallon.transform.position);
            
             //get word from dictionary that is not right word
@@ -71,9 +72,11 @@ public class objectSpawner : MonoBehaviour
 
     //takes boxCollder and produces a random point in that box
     public Vector3 getPointInCollision(BoxCollider box) {
-        return new Vector3(
+        Vector3 temp = new Vector3(
         Random.Range(box.bounds.min.x, box.bounds.max.x),
         Random.Range(box.bounds.min.y, box.bounds.max.y),
-        Random.Range(box.bounds.min.z, box.bounds.max.z));        
+        Random.Range(box.bounds.min.z, box.bounds.max.z));
+
+        return temp;        
     }
 }

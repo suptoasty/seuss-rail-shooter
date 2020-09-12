@@ -8,6 +8,7 @@ public class HealthControl : MonoBehaviour
     public GameObject Heart3;
     public GameObject Heart2;
     public GameObject Heart1;
+    [SerializeField]
     private int health = 4;
 
     public void setHealth(int h)

@@ -16,6 +16,13 @@ public class spawnArea : MonoBehaviour
         if(other.tag == "Player" && isActive) {
             spawner.spanwObjects(Random.Range(1, spawnNumber), randomSpawnNumber);
             isActive = false;
+            StartCoroutine(Reactivate());
         }
+    }
+
+    IEnumerator Reactivate()
+    {
+        yield return new WaitForSeconds(20);
+        isActive = true;
     }
 }

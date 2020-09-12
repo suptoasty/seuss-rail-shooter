@@ -14,11 +14,14 @@ public class TogglePause : MonoBehaviour
 
     void Start()
     {
+        paused = false;
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
 
         Cursor.visible = (false);
         Cursor.lockState = CursorLockMode.Locked;
+
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<gameManager>().resetLevel();
     }
 
     // Update is called once per frame
