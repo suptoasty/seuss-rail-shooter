@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3129428794592915708}
-  m_LocalRotation: {x: -0.26725292, y: -0, z: -0, w: 0.96362644}
-  m_LocalPosition: {x: 0, y: 2.516, z: 0}
+  m_LocalRotation: {x: -0.16599219, y: 0.75522375, z: 0.20945628, w: 0.5985079}
+  m_LocalPosition: {x: 1.096, y: -1.072, z: -0.24199963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3129428796224837487}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -31.002, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -31.002, y: 103.207, z: 0}
 --- !u!198 &3129428794592915711
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -3627,7 +3627,7 @@ ParticleSystem:
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.03
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3680,7 +3680,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3733,7 +3733,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4837,13 +4837,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3129428794974023390}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.516, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7837314, z: 0, w: 0.62109995}
+  m_LocalPosition: {x: 1.096, y: -1.072, z: -0.242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3129428796224837487}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 103.207, z: 0}
 --- !u!198 &3129428794974023385
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -8439,7 +8439,7 @@ ParticleSystem:
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.03
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -8492,7 +8492,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -8545,7 +8545,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -9649,13 +9649,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3129428795330161398}
-  m_LocalRotation: {x: -0.089977026, y: -0.02001596, z: 0.010202842, w: 0.9956904}
-  m_LocalPosition: {x: 0, y: 2.516, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.016998269, y: 0.78349596, z: 0.01065487, w: 0.62107307}
+  m_LocalPosition: {x: 1.096, y: -1.072, z: -0.24199963}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 3129428796224837487}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -10.298, y: -2.429, z: 1.393}
+  m_LocalEulerAnglesHint: {x: -2.167, y: 103.207, z: -0.768}
 --- !u!198 &3129428795330161393
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -9792,8 +9792,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 6
-      minScalar: 4
+      scalar: 15
+      minScalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10284,7 +10284,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 1
+    angle: 1.2
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 0
@@ -14460,7 +14460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3129428796224837486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0378551, y: -0.7366934, z: 4.2534637}
+  m_LocalPosition: {x: -3.0378551, y: 4.24, z: 15.467}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3129428794974023391}
