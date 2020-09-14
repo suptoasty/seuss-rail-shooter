@@ -30,7 +30,7 @@ public class objectSpawner : MonoBehaviour
         manager.currentWord = manager.rhyme[Random.Range(0, manager.rhyme.Count)];
         manager.rhymeDisplay.text = "Rhyme with: " + manager.currentWord;
 
-        balloon rhymingBalloon = Instantiate(spawnableObject, getRandomPosition(), Quaternion.identity).GetComponent<balloon>();
+        balloon rhymingBalloon = Instantiate(spawnableObject, getPointInCollision(spawnField), Quaternion.identity).GetComponent<balloon>();
         string rhymingWord = manager.rhyme[Random.Range(0, manager.rhyme.Count)];
         while(rhymingWord == manager.currentWord) {
             rhymingWord = manager.rhyme[Random.Range(0, manager.rhyme.Count)];
@@ -46,7 +46,8 @@ public class objectSpawner : MonoBehaviour
         for(int i = 0; i < amount; i++) {
             //instaniate new ballon
             balloon newBallon = Instantiate(spawnableObject, getPointInCollision(spawnField), Quaternion.identity).GetComponent<balloon>();
-            // Debug.Log(newBallon.transform.position);
+            newBallon.transform.position = getPointInCollision(spawnField);
+            Debug.Log(newBallon);
            
             //get word from dictionary that is not right word
             string word = manager.getWord();
