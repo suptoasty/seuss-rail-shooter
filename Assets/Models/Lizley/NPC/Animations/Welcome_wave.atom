@@ -1,0 +1,13 @@
+atomVersion 1.0;
+mayaVersion 2020;
+mayaSceneFile D:/Team Game/NPC/Welcome_1.mb;
+timeUnit film;
+linearUnit cm;
+angularUnit deg;
+startTime 1;
+endTime 24;
+dagNode {
+  polySurface1 1 3;
+  static v visibility 0;
+  { 1 }
+}
