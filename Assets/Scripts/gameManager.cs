@@ -122,9 +122,11 @@ public class gameManager : MonoBehaviour
 
     public bool isCorrect(string guess) {
         if(rhyme.Contains(guess)) {
+            soundMan.correctAnswer();
             return true;
         }
 
+        soundMan.incorrectAnswer();
         return false;
     }
 
