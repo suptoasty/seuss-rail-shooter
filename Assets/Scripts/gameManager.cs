@@ -43,6 +43,7 @@ public class gameManager : MonoBehaviour
 
     public TextMeshProUGUI rhymeDisplay;
     private bool endGameTriggered = false;
+    public SoundManager soundMan;
 
     void Awake() {
         if(instance == null) {
@@ -50,7 +51,7 @@ public class gameManager : MonoBehaviour
         } else if(instance != this) {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(this.gameObject);
+       // DontDestroyOnLoad(this.gameObject);
     }
 
     // Start is called before the first frame update
@@ -59,6 +60,7 @@ public class gameManager : MonoBehaviour
         resetScore();
         resetLives();
         StartCoroutine(timerCoroutine(1.0f));
+        soundMan.introduction();
     }
 
     public void resetLevel()
@@ -177,7 +179,17 @@ public class gameManager : MonoBehaviour
     private void endGame()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
         //End Game
+        if(lives < 1)
+        {
+            soundMan.conclusion(false);
+        }
+
+        else
+        {
+            soundMan.conclusion(true);
+        }
         float temp = PlayerPrefs.GetFloat("totalScore");
         PlayerPrefs.SetFloat("totalScore", temp + score);
         Debug.Log(temp = PlayerPrefs.GetFloat("totalScore"));

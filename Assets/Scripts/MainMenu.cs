@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,6 +16,8 @@ public class MainMenu : MonoBehaviour
     public GameObject resolutionPicker;
     public GameObject volumeSlider;
     public GameObject sideMenu;
+
+    public AudioMixer masterVolume;
 
     bool reset;
     bool fullScreen;
@@ -113,6 +116,7 @@ public class MainMenu : MonoBehaviour
     {
         //Need to set up an Audio mixer with a master volume, then tie this to that
         //AudioSource.volume = volumeSlider.GetComponent<Slider>().value;
+        masterVolume.SetFloat("MasterVolume", volumeSlider.GetComponent<Slider>().value);
     }
 
     public void prizeManagement()
