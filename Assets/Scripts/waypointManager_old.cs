@@ -15,7 +15,7 @@ public class WaypointManagerOld : MonoBehaviour
         point = new Vector3(Mathf.Round(point.x), Mathf.Round(point.y), Mathf.Round(point.z));
         Vector3 playerPoint = gameObject.transform.position;
         GameObject[] balloons = GameObject.FindGameObjectsWithTag("balloon");
-        Debug.Log(destPoint);
+        //Debug.Log(destPoint);
 
         // move to point until there
         if( playerPoint.z != point.z &&

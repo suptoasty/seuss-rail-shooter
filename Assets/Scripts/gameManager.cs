@@ -78,11 +78,15 @@ public class gameManager : MonoBehaviour
 
     public void increaseLives()
     {
-        lives++;
-        healthUI.incrementHealth();
+        if(lives < maxLives)
+        {
+            lives++;
+            healthUI.incrementHealth();
+        }
     }
 
     public void decreaseLives() {
+        //Debug.Log(lives);
         if(lives > 1)
         {
             lives--;
@@ -109,6 +113,7 @@ public class gameManager : MonoBehaviour
     public void removeScore(int amount)
     {
         score -= amount;
+        //Debug.Log(score);
     }
 
 

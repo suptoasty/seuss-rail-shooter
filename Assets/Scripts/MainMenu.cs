@@ -29,6 +29,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         reset = false;
+        
 
         //This is required otherwise objects do not exist if you begin with them disabled / invisable.
         if (highscoresScreen)
@@ -99,7 +100,7 @@ public class MainMenu : MonoBehaviour
     public void changeResolution()
     {
         string temp = resolutionPicker.GetComponent<TMP_Dropdown>().options[resolutionPicker.GetComponent<TMP_Dropdown>().value].text;
-        Debug.Log(temp);
+        //Debug.Log(temp);
         width = Int32.Parse(temp.Split(' ')[0]);
         height = Int32.Parse(temp.Split(' ')[2]);
         Screen.SetResolution(width, height, fullScreen);
@@ -125,6 +126,17 @@ public class MainMenu : MonoBehaviour
         int unlockedPrizes = (int)Math.Floor(prizeUnlock);
         Debug.Log("PrizeUnlock Percent: " + prizeUnlock);
         Debug.Log("UnlockedPrizes: " + unlockedPrizes);
+
+        if(unlockedPrizes <= 0){
+            
+            for(int i = 0; i < prizeList.Count; i++)
+            {
+                prizeList[i].GetComponent<Image>().enabled = true;
+                prizeList[i].GetComponent<Slider>().value = 0.0f;
+            }
+
+            return;
+        }
 
         //Set prizes active for all that are unlocked
         for(int i = 0; i < unlockedPrizes && i < prizeList.Count; i++)
@@ -231,5 +243,10 @@ public class MainMenu : MonoBehaviour
     public void quitToMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void resetScore(){
+        PlayerPrefs.SetFloat("totalScore", 0.0f);
+        prizeManagement();
     }
 }
