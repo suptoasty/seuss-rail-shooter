@@ -33,7 +33,7 @@ public class balloon : MonoBehaviour
       Text text = gameObject.transform.GetChild(0).GetChild(0).GetComponent<Text>();
       text.text = word;
    
-        text.color = new Color(255, 237, 172); 
+        text.color = new Color(240, 255, 255); 
       if(randomDespawn) {
          Destroy(gameObject, Random.Range(0, despawnTime));
       } else {
