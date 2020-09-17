@@ -29,7 +29,6 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         reset = false;
-        PlayerPrefs.SetFloat("totalScore", 800);
 
         //This is required otherwise objects do not exist if you begin with them disabled / invisable.
         if (highscoresScreen)
