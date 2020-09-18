@@ -18,6 +18,8 @@ public class SoundManager : MonoBehaviour
     //Incorrect Answer
     public List<AudioClip> incorrectAnswerL;
 
+    public List<AudioClip> words;
+
     //Music
     public AudioClip fail_noise;
     public AudioClip success_noise;
@@ -34,7 +36,7 @@ public class SoundManager : MonoBehaviour
 
     public void conclusion(bool winState)
     {
-        if(winState) //True means win
+        if (winState) //True means win
         {
             source.clip = success_noise;
         }
@@ -71,7 +73,7 @@ public class SoundManager : MonoBehaviour
 
     public void playWord(string word)
     {
-        source.clip = Resources.Load("Sounds/" + word) as AudioClip;
+        source.clip = Resources.Load<AudioClip>("words/" + word);
         source.Play();
     }
 
