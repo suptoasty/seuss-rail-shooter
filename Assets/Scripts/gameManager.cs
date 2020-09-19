@@ -44,6 +44,8 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI rhymeDisplay;
     private bool endGameTriggered = false;
     public SoundManager soundMan;
+    public GameObject correct;
+    public GameObject incorrect;
 
     void Awake() {
         if(instance == null) {
@@ -127,12 +129,12 @@ public class gameManager : MonoBehaviour
 
     public bool isCorrect(string guess) {
         if(rhyme.Contains(guess)) {
-            StartCoroutine(answerAnimation(1.2f, GameObject.FindGameObjectWithTag("Correct")));
+            StartCoroutine(answerAnimation(1.2f, correct));
             soundMan.correctAnswer();
             return true;
         }
 
-        StartCoroutine(answerAnimation(1.51f, GameObject.FindGameObjectWithTag("Inncorrect")));
+        StartCoroutine(answerAnimation(1.51f, incorrect));
         soundMan.incorrectAnswer();
         return false;
     }
@@ -214,6 +216,8 @@ public class gameManager : MonoBehaviour
 
     IEnumerator answerAnimation(float time, GameObject lucky)
     {
+        Debug.Log(lucky);
+        lucky.SetActive(true);
         yield return new WaitForSeconds(time);
         lucky.SetActive(false);
     }
