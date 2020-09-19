@@ -12,6 +12,8 @@ TagManager:
   - SoundManager
   - rhyme
   - GameManager
+  - Correct
+  - Inncorrect
   layers:
   - Default
   - TransparentFX
