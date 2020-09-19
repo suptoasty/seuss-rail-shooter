@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Formats.Alembic.Importer;
+using UnityEngine.Playables;
 
 public class balloon : MonoBehaviour
 {
@@ -79,6 +81,16 @@ public class balloon : MonoBehaviour
         //swap out models and deinstance this object
         SoundManager sound = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         sound.playWord(word);
-        Destroy(this.gameObject);
+
+        //This is lazy and bad but im doing it anyway
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        gameObject.transform.GetChild(2).gameObject.SetActive(false);
+
+        gameObject.transform.GetChild(3).gameObject.SetActive(true);
+        gameObject.transform.GetChild(3).gameObject.GetComponent<PlayableDirector>().Play();
+
+
+        Destroy(this.gameObject,2.3f/1.8f);
     }
 }

@@ -127,10 +127,12 @@ public class gameManager : MonoBehaviour
 
     public bool isCorrect(string guess) {
         if(rhyme.Contains(guess)) {
+            StartCoroutine(answerAnimation(1.2f, GameObject.FindGameObjectWithTag("Correct")));
             soundMan.correctAnswer();
             return true;
         }
 
+        StartCoroutine(answerAnimation(1.51f, GameObject.FindGameObjectWithTag("Inncorrect")));
         soundMan.incorrectAnswer();
         return false;
     }
@@ -208,5 +210,11 @@ public class gameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         SceneManager.LoadScene(0);
+    }
+
+    IEnumerator answerAnimation(float time, GameObject lucky)
+    {
+        yield return new WaitForSeconds(time);
+        lucky.SetActive(false);
     }
 }
