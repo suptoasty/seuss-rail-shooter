@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour
     int height;
 
     public List<GameObject> prizeList;
+    public List<GameObject> itemList;
 
     private void Start()
     {
@@ -143,6 +144,7 @@ public class MainMenu : MonoBehaviour
         {
             prizeList[i].GetComponent<Image>().enabled = false;
             prizeList[i].GetComponent<Slider>().value = 1.0f;
+            itemList[i].SetActive(true);
         }
 
         //If not all prizes are unlocked, set the percentage for the next item
