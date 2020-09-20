@@ -611,11 +611,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: Template_HD
   metroPackageVersion: 
-  metroCertificatePath: 
+  metroCertificatePath: C:\Users\Tyler\Desktop\TeamGame\Game1\Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 8063223a83aed701
   metroApplicationDescription: Template_HD
   wsaImages: {}
   metroTileShortName: 

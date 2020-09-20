@@ -9,7 +9,7 @@ public class gameManager : MonoBehaviour
 {
     public bool hardMode = false;
     private int score = 0;
-    public int timer = 180; //Seconds
+    public float timer = 180; //Seconds
     public GameObject timerObj;
     private int lives = 0;
     public int maxLives = 4;
@@ -61,8 +61,27 @@ public class gameManager : MonoBehaviour
         setTimer();
         resetScore();
         resetLives();
-        StartCoroutine(timerCoroutine(1.0f));
         soundMan.introduction();
+    }
+
+    private void Update()
+    {
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            setTimer();
+        }
+
+        else if (!endGameTriggered)
+        {
+            endGameTriggered = true;
+            endGame();
+        }
+
+        else if (endGameTriggered)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void resetLevel()
@@ -75,7 +94,6 @@ public class gameManager : MonoBehaviour
         setTimer();
         resetScore();
         resetLives();
-        StartCoroutine(timerCoroutine(1.0f));
     }
 
     public void increaseLives()
@@ -160,31 +178,9 @@ public class gameManager : MonoBehaviour
     private void setTimer()
     {
         if(timer % 60 > 9)
-            timerObj.GetComponent<TextMeshProUGUI>().text = (timer / 60).ToString() + ":" + (timer % 60).ToString();
+            timerObj.GetComponent<TextMeshProUGUI>().text = ((int)timer / 60).ToString() + ":" + ((int)timer % 60).ToString();
         else
-            timerObj.GetComponent<TextMeshProUGUI>().text = (timer / 60).ToString() + ":0" + (timer % 60).ToString();
-    }
-
-    IEnumerator timerCoroutine(float time)
-    {
-        yield return new WaitForSeconds(time);
-        if(timer > 0)
-        {
-            timer--;
-            setTimer();
-            StartCoroutine(timerCoroutine(time));
-        }
-
-        else if(!endGameTriggered)
-        {
-            endGameTriggered = true;
-            endGame();
-        }
-
-        else if (endGameTriggered)
-        {
-            SceneManager.LoadScene(0);
-        }
+            timerObj.GetComponent<TextMeshProUGUI>().text = ((int)timer / 60).ToString() + ":0" + ((int)timer % 60).ToString();
     }
 
     private void endGame()
