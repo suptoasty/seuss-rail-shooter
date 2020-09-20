@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9144196293203542434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ConfettiSystems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 4640976136370774112}
   - component: {fileID: 8915273399660426225}
   - component: {fileID: 9128262790468896753}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Confetti (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4858,7 +4858,7 @@ GameObject:
   - component: {fileID: 5402363873111941117}
   - component: {fileID: 4308341023557705830}
   - component: {fileID: 1943133633670660970}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Confetti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9670,7 +9670,7 @@ GameObject:
   - component: {fileID: 3477082553693128875}
   - component: {fileID: 8326674329239496342}
   - component: {fileID: 3060064787541352003}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Confetti (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14483,7 +14483,7 @@ GameObject:
   - component: {fileID: 4219591370213257221}
   - component: {fileID: 8241707346065494055}
   - component: {fileID: 9064172409192604204}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14583,7 +14583,7 @@ GameObject:
   - component: {fileID: 2814463939953829534}
   - component: {fileID: 508702562684030941}
   - component: {fileID: 451949138297197193}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14778,7 +14778,7 @@ GameObject:
   - component: {fileID: 5746738540203076935}
   - component: {fileID: 5317723439328993054}
   - component: {fileID: 7876924445272907316}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Confetti (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19590,7 +19590,7 @@ GameObject:
   - component: {fileID: 7493913708768749313}
   - component: {fileID: 6318291803769119962}
   - component: {fileID: 7843223181232993304}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19669,7 +19669,7 @@ GameObject:
   - component: {fileID: 8050778018186930438}
   - component: {fileID: 4203911566160030001}
   - component: {fileID: 7315087822372982773}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Balloon
   m_TagString: balloon
   m_Icon: {fileID: 0}
@@ -19740,7 +19740,7 @@ GameObject:
   - component: {fileID: 4751858355879505976}
   - component: {fileID: 7103438080083598813}
   - component: {fileID: 1841282631806846325}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Confetti (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24593,7 +24593,7 @@ GameObject:
   - component: {fileID: 2840558226044417729}
   - component: {fileID: 1623468461886633591}
   - component: {fileID: 1502361652421660498}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24688,10 +24688,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8050778018186930438}
     m_Modifications:
+    - target: {fileID: -8815310268949253548, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8440247057302471036, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -6357421141082075008, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3bd9de5e2c1a29945ab5d6bf7c1a439b, type: 2}
+    - target: {fileID: -6188281645641461364, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -4292468808150794821, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -24748,9 +24760,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: -2128452292614962971, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -931456676528420816, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1496100571410791193, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4516646069169649821, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
       propertyPath: m_Name
@@ -24759,6 +24779,14 @@ PrefabInstance:
     - target: {fileID: 4516646069169649821, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516646069169649821, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5573811528106214687, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7771297858365072351, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
       propertyPath: startTime

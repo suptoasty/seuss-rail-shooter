@@ -27,7 +27,7 @@ public class objectSpawner : MonoBehaviour
     {
         if (random)
         {
-            amount = Mathf.RoundToInt(Random.Range(3.0f, 7.0f));
+            amount = Mathf.RoundToInt(Random.Range(3.0f, 5.0f));
         }
         manager.rhyme = manager.getRhyme();
         manager.currentWord = manager.rhyme[Random.Range(0, manager.rhyme.Count)];
@@ -46,7 +46,7 @@ public class objectSpawner : MonoBehaviour
         // Debug.Log("RhymingWord: "+rhymingWord);
 
         //for all others spawn with random word
-        amount++; //account for right ballon
+        //amount++; //account for right ballon
         for (int i = 0; i < amount; i++)
         {
             //instaniate new ballon

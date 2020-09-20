@@ -79,8 +79,6 @@ public class balloon : MonoBehaviour
     public void pop()
     {
         //swap out models and deinstance this object
-        SoundManager sound = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
-        sound.playWord(word);
 
         //This is lazy and bad but im doing it anyway
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
