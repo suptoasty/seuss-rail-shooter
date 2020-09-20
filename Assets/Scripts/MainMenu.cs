@@ -134,6 +134,7 @@ public class MainMenu : MonoBehaviour
             {
                 prizeList[i].GetComponent<Image>().enabled = true;
                 prizeList[i].GetComponent<Slider>().value = 0.0f;
+                itemList[i].SetActive(false);
             }
 
             return;
