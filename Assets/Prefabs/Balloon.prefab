@@ -24541,22 +24541,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!111 &4249637894203532503
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6367826994297520853}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: -1638789572408541109, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
-  m_Animations:
-  - {fileID: -1638789572408541109, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!320 &5359794113338788252
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -24802,16 +24786,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: -8866930042259002601, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
---- !u!4 &2494817302038448115 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -4292468808150794821, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
-  m_PrefabInstance: {fileID: 7417790612079524424}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6367826994297520853 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4516646069169649821, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
-  m_PrefabInstance: {fileID: 7417790612079524424}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &948143480387967383 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7771297858365072351, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
@@ -24823,3 +24797,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6983ab2008f7a9f499b3f8cd6bec328d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6367826994297520853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4516646069169649821, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
+  m_PrefabInstance: {fileID: 7417790612079524424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2494817302038448115 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4292468808150794821, guid: daab2412805d7e744b547f17bf881f7f, type: 3}
+  m_PrefabInstance: {fileID: 7417790612079524424}
+  m_PrefabAsset: {fileID: 0}

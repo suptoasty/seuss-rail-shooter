@@ -14,7 +14,8 @@ public class MainMenu : MonoBehaviour
     public GameObject highscoresScreen;
     public GameObject prizeScreen;
     public GameObject resolutionPicker;
-    public GameObject volumeSlider;
+    public GameObject musicSlider;
+    public GameObject voiceSlider;
     public GameObject sideMenu;
 
     public AudioMixer masterVolume;
@@ -113,11 +114,18 @@ public class MainMenu : MonoBehaviour
         Screen.SetResolution(width, height, fullScreen);
     }
 
-    public void changeVolume()
+    public void changeVolumeMusic()
     {
         //Need to set up an Audio mixer with a master volume, then tie this to that
         //AudioSource.volume = volumeSlider.GetComponent<Slider>().value;
-        masterVolume.SetFloat("MasterVolume", volumeSlider.GetComponent<Slider>().value);
+        masterVolume.SetFloat("MusicVolume", musicSlider.GetComponent<Slider>().value);
+    }
+
+    public void changeVolumeNarration()
+    {
+        //Need to set up an Audio mixer with a master volume, then tie this to that
+        //AudioSource.volume = volumeSlider.GetComponent<Slider>().value;
+        masterVolume.SetFloat("NarrationVolume", voiceSlider.GetComponent<Slider>().value);
     }
 
     public void prizeManagement()

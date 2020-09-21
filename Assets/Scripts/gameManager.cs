@@ -77,11 +77,6 @@ public class gameManager : MonoBehaviour
             endGameTriggered = true;
             endGame();
         }
-
-        else if (endGameTriggered)
-        {
-            SceneManager.LoadScene(0);
-        }
     }
 
     public void resetLevel()
